@@ -1,0 +1,531 @@
+<div class="min-h-screen bg-slate-950 text-white">
+
+  <!-- Header -->
+
+  <header class="h-16 border-b border-slate-800 bg-slate-900/80">
+
+    <div class="max-w-7xl mx-auto px-6 h-full
+                flex items-center justify-between">
+
+      <div class="flex items-center gap-3">
+
+        <div class="w-9 h-9 rounded-lg
+                    bg-blue-600
+                    flex items-center justify-center">
+
+          <span class="font-bold text-sm">
+            BS
+          </span>
+
+        </div>
+
+        <div>
+
+          <p class="font-semibold">
+            NovaTech
+          </p>
+
+          <p class="text-xs text-slate-400">
+            Resultados de simulación
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <span class="px-3 py-1 rounded-full
+                   bg-blue-500/10
+                   text-blue-400
+                   text-xs font-medium">
+
+        Ronda {{ result?.round }} / 3
+
+      </span>
+
+    </div>
+
+  </header>
+
+
+  <main class="max-w-7xl mx-auto px-6 py-8">
+
+
+    <!-- Title -->
+
+    <div class="mb-8">
+
+      <p class="text-blue-400 text-sm font-medium mb-2">
+        Resultados
+      </p>
+
+      <h1 class="text-3xl font-bold">
+        Desempeño de NovaTech
+      </h1>
+
+      <p class="text-slate-400 mt-2">
+        Estos son los resultados obtenidos durante la ronda.
+      </p>
+
+    </div>
+
+
+    <!-- Main metrics -->
+
+    <div class="grid grid-cols-1 md:grid-cols-2
+                lg:grid-cols-4 gap-4 mb-8">
+
+
+      <!-- Revenue -->
+
+      <div class="bg-slate-900
+                  border border-slate-800
+                  rounded-2xl p-5">
+
+        <p class="text-sm text-slate-400">
+          Ingresos
+        </p>
+
+        <p class="text-2xl font-bold mt-2">
+
+          {{
+            result?.revenue | currency:'COP':'symbol':'1.0-0'
+          }}
+
+        </p>
+
+      </div>
+
+
+      <!-- Profit -->
+
+      <div class="bg-slate-900
+                  border border-slate-800
+                  rounded-2xl p-5">
+
+        <p class="text-sm text-slate-400">
+          Utilidad
+        </p>
+
+        <p class="text-2xl font-bold mt-2">
+
+          {{
+            result?.profit | currency:'COP':'symbol':'1.0-0'
+          }}
+
+        </p>
+
+      </div>
+
+
+      <!-- ROI -->
+
+      <div class="bg-slate-900
+                  border border-slate-800
+                  rounded-2xl p-5">
+
+        <p class="text-sm text-slate-400">
+          ROI
+        </p>
+
+        <p class="text-2xl font-bold mt-2">
+
+          {{ result?.roi | number:'1.1-1' }}%
+
+        </p>
+
+      </div>
+
+
+      <!-- Market share -->
+
+      <div class="bg-slate-900
+                  border border-slate-800
+                  rounded-2xl p-5">
+
+        <p class="text-sm text-slate-400">
+          Participación de mercado
+        </p>
+
+        <p class="text-2xl font-bold mt-2">
+
+          {{ result?.marketShare | number:'1.1-1' }}%
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Details -->
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+
+      <!-- Financial -->
+
+      <section class="bg-slate-900
+                      border border-slate-800
+                      rounded-2xl p-6">
+
+        <h2 class="text-lg font-semibold mb-6">
+          Desempeño financiero
+        </h2>
+
+
+        <div class="space-y-4">
+
+
+          <div class="flex justify-between">
+
+            <span class="text-slate-400">
+              Ingresos
+            </span>
+
+            <span class="font-medium">
+
+              {{
+                result?.revenue
+                | currency:'COP':'symbol':'1.0-0'
+              }}
+
+            </span>
+
+          </div>
+
+
+          <div class="flex justify-between">
+
+            <span class="text-slate-400">
+              Costos de producción
+            </span>
+
+            <span class="font-medium">
+
+              {{
+                result?.productionCost
+                | currency:'COP':'symbol':'1.0-0'
+              }}
+
+            </span>
+
+          </div>
+
+
+          <div class="flex justify-between">
+
+            <span class="text-slate-400">
+              Marketing
+            </span>
+
+            <span class="font-medium">
+
+              {{
+                result?.marketingCost
+                | currency:'COP':'symbol':'1.0-0'
+              }}
+
+            </span>
+
+          </div>
+
+
+          <div class="flex justify-between">
+
+            <span class="text-slate-400">
+              Costos totales
+            </span>
+
+            <span class="font-medium">
+
+              {{
+                result?.totalCosts
+                | currency:'COP':'symbol':'1.0-0'
+              }}
+
+            </span>
+
+          </div>
+
+
+          <div class="border-t border-slate-800 pt-4
+                      flex justify-between">
+
+            <span class="font-semibold">
+              Utilidad
+            </span>
+
+            <span class="font-bold text-emerald-400">
+
+              {{
+                result?.profit
+                | currency:'COP':'symbol':'1.0-0'
+              }}
+
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+      <!-- Market situation -->
+
+    <section class="mt-6">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+
+        <!-- Event -->
+
+        <div class="bg-slate-900
+                    border border-slate-800
+                    rounded-2xl p-6">
+
+        <div class="flex items-center gap-3 mb-5">
+
+            <div class="w-10 h-10 rounded-xl
+                        bg-amber-500/10
+                        flex items-center justify-center">
+
+            ⚡
+
+            </div>
+
+            <div>
+
+            <h2 class="text-lg font-semibold">
+                Situación del mercado
+            </h2>
+
+            <p class="text-sm text-slate-400">
+                Eventos que afectan esta ronda.
+            </p>
+
+            </div>
+
+        </div>
+
+
+        @if (result?.event) {
+
+            <div class="p-4 rounded-xl
+                        bg-amber-500/10
+                        border border-amber-500/20">
+
+            <p class="font-semibold text-amber-400">
+                {{  result.event?.name  }}
+            </p>
+
+            <p class="text-sm text-slate-400 mt-2">
+                {{ result.event?.description }}
+            </p>
+
+            </div>
+
+        } @else {
+
+            <div class="p-4 rounded-xl
+                        bg-slate-800">
+
+            <p class="font-medium">
+                Mercado estable
+            </p>
+
+            <p class="text-sm text-slate-400 mt-1">
+                No se presentaron eventos extraordinarios
+                durante esta ronda.
+            </p>
+
+            </div>
+
+        }
+
+        </div>
+
+
+        <!-- Competitors -->
+
+        <div class="bg-slate-900
+                    border border-slate-800
+                    rounded-2xl p-6">
+
+        <h2 class="text-lg font-semibold mb-5">
+            Competidores
+        </h2>
+
+
+        <div class="space-y-4">
+
+            @for (competitor of result?.competitors; track competitor.id) {
+
+            <div class="flex items-center justify-between">
+
+                <div>
+
+                <p class="font-medium">
+                    {{ competitor.name }}
+                </p>
+
+                <p class="text-xs text-slate-500">
+                    Precio: ${{ competitor.price }}
+                </p>
+
+                </div>
+
+
+                <div class="text-right">
+
+                <p class="font-semibold">
+                    {{ competitor.marketShare }}%
+                </p>
+
+                <p class="text-xs text-slate-500">
+                    Market Share
+                </p>
+
+                </div>
+
+            </div>
+
+            }
+
+        </div>
+
+        </div>
+
+    </div>
+
+    </section>
+
+
+      <!-- ESG -->
+
+      <section class="bg-slate-900
+                      border border-slate-800
+                      rounded-2xl p-6">
+
+        <h2 class="text-lg font-semibold mb-6">
+          Indicadores
+        </h2>
+
+
+        <!-- Units -->
+
+        <div class="mb-6">
+
+          <div class="flex justify-between mb-2">
+
+            <span class="text-sm text-slate-400">
+              Unidades vendidas
+            </span>
+
+            <span class="font-medium">
+              {{ result?.unitsSold | number }}
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- Market -->
+
+        <div class="mb-6">
+
+          <div class="flex justify-between mb-2">
+
+            <span class="text-sm text-slate-400">
+              Participación de mercado
+            </span>
+
+            <span class="font-medium">
+              {{ result?.marketShare | number:'1.1-1' }}%
+            </span>
+
+          </div>
+
+          <div class="w-full h-2
+                      bg-slate-800
+                      rounded-full">
+
+            <div
+              class="h-full bg-blue-600 rounded-full"
+              [style.width.%]="result?.marketShare">
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ESG -->
+
+        <div>
+
+          <div class="flex justify-between mb-2">
+
+            <span class="text-sm text-slate-400">
+              ESG Score
+            </span>
+
+            <span class="font-medium">
+              {{ result?.esgScore | number:'1.0-0' }}/100
+            </span>
+
+          </div>
+
+          <div class="w-full h-2
+                      bg-slate-800
+                      rounded-full">
+
+            <div
+              class="h-full bg-emerald-500 rounded-full"
+              [style.width.%]="result?.esgScore">
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- Actions -->
+
+    <div class="mt-8 flex justify-end gap-3">
+
+      <button
+        class="px-6 py-3
+               rounded-xl
+               border border-slate-700
+               hover:bg-slate-800
+               transition-colors">
+
+        Ver decisiones
+
+      </button>
+
+
+      <button
+        class="px-6 py-3
+               rounded-xl
+               bg-blue-600
+               hover:bg-blue-500
+               font-semibold
+               transition-colors">
+
+        Continuar a ronda 2 →
+
+      </button>
+
+    </div>
+
+  </main>
+
+</div>
